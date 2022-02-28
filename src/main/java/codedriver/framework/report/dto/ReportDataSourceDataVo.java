@@ -39,6 +39,10 @@ public class ReportDataSourceDataVo extends BasePageVo {
         fieldList.add(fieldVo);
     }
 
+    public ReportDataSourceDataVo() {
+
+    }
+
     public ReportDataSourceDataVo(Long dataSourceId) {
         this.dataSourceId = dataSourceId;
     }
