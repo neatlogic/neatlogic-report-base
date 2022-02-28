@@ -18,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ReportDataSourceVo extends BasePageVo {
     @EntityField(name = "id", type = ApiParamType.LONG)
@@ -83,6 +84,11 @@ public class ReportDataSourceVo extends BasePageVo {
             return keyList;
         }
         return null;
+    }
+
+    public ReportDataSourceFieldVo getFieldById(Long fieldId) {
+        Optional<ReportDataSourceFieldVo> op = fieldList.stream().filter(d -> d.getId().equals(fieldId)).findFirst();
+        return op.orElse(null);
     }
 
     public Integer getDataCount() {

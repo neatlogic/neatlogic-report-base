@@ -35,10 +35,17 @@ public class ReportDataSourceFieldVo extends BasePageVo {
     @JSONField(serialize = false)
     private String configStr;
     @JSONField(serialize = false)
-    private Object value;//值
+    private Object value;//值,作为条件
 
     public ReportDataSourceFieldVo() {
 
+    }
+
+    public ReportDataSourceFieldVo(ReportDataSourceFieldVo reportDataSourceFieldVo) {
+        this.name = reportDataSourceFieldVo.getName();
+        this.label = reportDataSourceFieldVo.getLabel();
+        this.type = reportDataSourceFieldVo.getType();
+        this.id = reportDataSourceFieldVo.getId();
     }
 
     public ReportDataSourceFieldVo(String name, String label, String type, Integer isKey) {
