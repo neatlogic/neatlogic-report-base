@@ -10,6 +10,7 @@ import codedriver.framework.common.dto.BaseEditorVo;
 import codedriver.framework.restful.annotation.EntityField;
 import codedriver.framework.util.SnowflakeUtil;
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -31,6 +32,10 @@ public class ReportStatementVo extends BaseEditorVo {
     private Integer height;
     @EntityField(name = "备注", type = ApiParamType.STRING)
     private String description;
+    @EntityField(name = "额外配置", type = ApiParamType.JSONOBJECT)
+    private JSONObject config;
+    @JSONField(serialize = false)
+    private String configStr;
 
     public Long getId() {
         if (id == null) {
@@ -79,6 +84,32 @@ public class ReportStatementVo extends BaseEditorVo {
             }
         }
         return widgetList;
+    }
+
+    public JSONObject getConfig() {
+        if (config == null && StringUtils.isNotBlank(configStr)) {
+            try {
+                config = JSONObject.parseObject(configStr);
+            } catch (Exception ignored) {
+
+            }
+        }
+        return config;
+    }
+
+    public void setConfig(JSONObject config) {
+        this.config = config;
+    }
+
+    public String getConfigStr() {
+        if (StringUtils.isBlank(configStr) && config != null) {
+            configStr = config.toString();
+        }
+        return configStr;
+    }
+
+    public void setConfigStr(String configStr) {
+        this.configStr = configStr;
     }
 
     public void setWidgetList(JSONArray widgetList) {
