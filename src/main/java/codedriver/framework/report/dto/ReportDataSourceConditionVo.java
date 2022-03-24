@@ -25,6 +25,8 @@ public class ReportDataSourceConditionVo extends BasePageVo {
     private String label;
     @EntityField(name = "类型", type = ApiParamType.ENUM, member = FieldType.class)
     private String type;
+    @EntityField(name = "类型名称", type = ApiParamType.STRING)
+    private String typeText;
     @EntityField(name = "配置", type = ApiParamType.JSONOBJECT)
     private JSONObject config;
     @EntityField(name = "条件值", type = ApiParamType.STRING)
@@ -57,6 +59,17 @@ public class ReportDataSourceConditionVo extends BasePageVo {
             id = SnowflakeUtil.uniqueLong();
         }
         return id;
+    }
+
+    public String getTypeText() {
+        if (type != null && StringUtils.isBlank(typeText)) {
+            typeText = FieldType.getText(type);
+        }
+        return typeText;
+    }
+
+    public void setTypeText(String typeText) {
+        this.typeText = typeText;
     }
 
     public void setId(Long id) {

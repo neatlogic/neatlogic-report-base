@@ -56,6 +56,14 @@ public class ReportDataSourceVo extends BasePageVo {
     @JSONField(serialize = false)//数据列表
     private List<ReportDataSourceDataVo> dataList;
 
+    public ReportDataSourceVo() {
+
+    }
+
+    public ReportDataSourceVo(Long id) {
+        this.id = id;
+    }
+
 
     public Long getId() {
         if (id == null) {
@@ -63,6 +71,7 @@ public class ReportDataSourceVo extends BasePageVo {
         }
         return id;
     }
+
 
     @JSONField(serialize = false)
     public String getTableName() {

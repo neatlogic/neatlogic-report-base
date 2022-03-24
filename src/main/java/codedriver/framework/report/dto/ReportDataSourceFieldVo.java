@@ -26,8 +26,12 @@ public class ReportDataSourceFieldVo extends BasePageVo {
     private String label;
     @EntityField(name = "类型", type = ApiParamType.ENUM, member = FieldType.class)
     private String type;
-    @EntityField(name = "输入类型", type = ApiParamType.ENUM, member = FieldInputType.class)
+    @EntityField(name = "类型名称", type = ApiParamType.STRING)
+    private String typeText;
+    @EntityField(name = "输入方式", type = ApiParamType.ENUM, member = FieldInputType.class)
     private String inputType;
+    @EntityField(name = "输入方式名称", type = ApiParamType.STRING)
+    private String inputTypeText;
     @EntityField(name = "是否主键", type = ApiParamType.INTEGER)
     private Integer isKey;
     @EntityField(name = "配置", type = ApiParamType.JSONOBJECT)
@@ -53,6 +57,28 @@ public class ReportDataSourceFieldVo extends BasePageVo {
         this.label = label;
         this.type = type;
         this.isKey = isKey;
+    }
+
+    public String getTypeText() {
+        if (type != null && StringUtils.isBlank(typeText)) {
+            typeText = FieldType.getText(type);
+        }
+        return typeText;
+    }
+
+    public void setTypeText(String typeText) {
+        this.typeText = typeText;
+    }
+
+    public String getInputTypeText() {
+        if (inputType != null && StringUtils.isBlank(inputTypeText)) {
+            inputTypeText = FieldInputType.getText(inputType);
+        }
+        return inputTypeText;
+    }
+
+    public void setInputTypeText(String inputTypeText) {
+        this.inputTypeText = inputTypeText;
     }
 
     public Object getValue() {
