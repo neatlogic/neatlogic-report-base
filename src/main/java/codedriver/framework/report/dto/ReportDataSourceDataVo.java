@@ -31,6 +31,8 @@ public class ReportDataSourceDataVo extends BasePageVo {
     private Date expireTime;
     @EntityField(name = "条件列表", type = ApiParamType.JSONARRAY)
     private List<ReportDataSourceFieldVo> conditionList;
+    @EntityField(name = "是否过期", type = ApiParamType.INTEGER)
+    private Integer isExpired = 0;
 
     public void addField(ReportDataSourceFieldVo fieldVo) {
         if (fieldList == null) {
@@ -67,6 +69,14 @@ public class ReportDataSourceDataVo extends BasePageVo {
 
     public Integer getExpireMinute() {
         return expireMinute;
+    }
+
+    public Integer getIsExpired() {
+        return isExpired;
+    }
+
+    public void setIsExpired(Integer isExpired) {
+        this.isExpired = isExpired;
     }
 
     public void setExpireMinute(Integer expireMinute) {
