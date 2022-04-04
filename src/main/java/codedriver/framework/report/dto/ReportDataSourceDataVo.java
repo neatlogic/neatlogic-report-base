@@ -23,8 +23,8 @@ public class ReportDataSourceDataVo extends BasePageVo {
     private Long dataSourceId;
     @EntityField(name = "字段列表", type = ApiParamType.JSONARRAY)
     private List<ReportDataSourceFieldVo> fieldList;
-    @EntityField(name = "有效天数", type = ApiParamType.INTEGER)
-    private Integer expireDay;
+    @EntityField(name = "有效时间，单位分钟", type = ApiParamType.INTEGER)
+    private Integer expireMinute;
     @EntityField(name = "添加日期", type = ApiParamType.LONG)
     private Date insertTime;
     @EntityField(name = "过期日期", type = ApiParamType.LONG)
@@ -65,6 +65,14 @@ public class ReportDataSourceDataVo extends BasePageVo {
         return false;
     }
 
+    public Integer getExpireMinute() {
+        return expireMinute;
+    }
+
+    public void setExpireMinute(Integer expireMinute) {
+        this.expireMinute = expireMinute;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -85,13 +93,6 @@ public class ReportDataSourceDataVo extends BasePageVo {
         this.fieldList = fieldList;
     }
 
-    public Integer getExpireDay() {
-        return expireDay;
-    }
-
-    public void setExpireDay(Integer expireDay) {
-        this.expireDay = expireDay;
-    }
 
     public Date getInsertTime() {
         return insertTime;

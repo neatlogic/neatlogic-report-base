@@ -8,6 +8,7 @@ package codedriver.framework.report.dto;
 import codedriver.framework.asynchronization.threadlocal.TenantContext;
 import codedriver.framework.common.constvalue.ApiParamType;
 import codedriver.framework.common.dto.BasePageVo;
+import codedriver.framework.report.enums.ExpireUnit;
 import codedriver.framework.report.enums.Mode;
 import codedriver.framework.report.enums.Status;
 import codedriver.framework.restful.annotation.EntityField;
@@ -45,8 +46,12 @@ public class ReportDataSourceVo extends BasePageVo {
     private String mode;
     @EntityField(name = "数据量", type = ApiParamType.INTEGER)
     private Integer dataCount;
-    @EntityField(name = "过期天数", type = ApiParamType.INTEGER)
-    private Integer expireDay;
+    @JSONField(serialize = false)
+    private Integer expireMinute;//所有过期时间都转换成分钟
+    @EntityField(name = "有效时间数值", type = ApiParamType.INTEGER)
+    private Integer expireCount;
+    @EntityField(name = "有效时间单位", type = ApiParamType.ENUM, member = ExpireUnit.class)
+    private String expireUnit;
     @EntityField(name = "字段列表", type = ApiParamType.JSONARRAY)
     private List<ReportDataSourceFieldVo> fieldList;
     @EntityField(name = "条件列表", type = ApiParamType.JSONARRAY)
@@ -72,6 +77,38 @@ public class ReportDataSourceVo extends BasePageVo {
         return id;
     }
 
+    public Integer getExpireMinute() {
+        if (expireCount != null && StringUtils.isNotBlank(expireUnit)) {
+            if (expireUnit.equals(ExpireUnit.MINUTE.getValue())) {
+                expireMinute = expireCount;
+            } else if (expireUnit.equals(ExpireUnit.HOUR.getValue())) {
+                expireMinute = expireCount * 60;
+            } else if (expireUnit.equals(ExpireUnit.DAY.getValue())) {
+                expireMinute = expireCount * 60 * 24;
+            }
+        }
+        return expireMinute;
+    }
+
+    public void setExpireMinute(Integer expireMinute) {
+        this.expireMinute = expireMinute;
+    }
+
+    public Integer getExpireCount() {
+        return expireCount;
+    }
+
+    public void setExpireCount(Integer expireCount) {
+        this.expireCount = expireCount;
+    }
+
+    public String getExpireUnit() {
+        return expireUnit;
+    }
+
+    public void setExpireUnit(String expireUnit) {
+        this.expireUnit = expireUnit;
+    }
 
     @JSONField(serialize = false)
     public String getTableName() {
@@ -171,14 +208,6 @@ public class ReportDataSourceVo extends BasePageVo {
         this.mode = mode;
     }
 
-    public Integer getExpireDay() {
-        return expireDay;
-    }
-
-    public void setExpireDay(Integer expireDay) {
-        this.expireDay = expireDay;
-    }
-
     public String getLabel() {
         return label;
     }
@@ -212,8 +241,6 @@ public class ReportDataSourceVo extends BasePageVo {
     }
 
     public List<ReportDataSourceFieldVo> getFieldList() {
-        if (CollectionUtils.isEmpty(fieldList) && StringUtils.isNotBlank(xml)) {
-        }
         return fieldList;
     }
 
