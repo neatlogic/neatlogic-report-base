@@ -3,11 +3,11 @@
  * 本内容仅限于深圳市赞悦科技有限公司内部传阅，禁止外泄以及用于其他的商业项目。
  */
 
-package codedriver.framework.report.dto.data;
+package neatlogic.framework.report.dto.data;
 
-import codedriver.framework.common.constvalue.ApiParamType;
-import codedriver.framework.report.enums.DistrictLevel;
-import codedriver.framework.restful.annotation.EntityField;
+import neatlogic.framework.common.constvalue.ApiParamType;
+import neatlogic.framework.report.enums.DistrictLevel;
+import neatlogic.framework.restful.annotation.EntityField;
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class DistrictVo {

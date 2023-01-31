@@ -3,12 +3,12 @@
  * 本内容仅限于深圳市赞悦科技有限公司内部传阅，禁止外泄以及用于其他的商业项目。
  */
 
-package codedriver.framework.report.dto;
+package neatlogic.framework.report.dto;
 
-import codedriver.framework.common.constvalue.ApiParamType;
-import codedriver.framework.common.dto.BasePageVo;
-import codedriver.framework.integration.dto.table.ColumnVo;
-import codedriver.framework.restful.annotation.EntityField;
+import neatlogic.framework.common.constvalue.ApiParamType;
+import neatlogic.framework.common.dto.BasePageVo;
+import neatlogic.framework.integration.dto.table.ColumnVo;
+import neatlogic.framework.restful.annotation.EntityField;
 
 import java.util.List;
 
