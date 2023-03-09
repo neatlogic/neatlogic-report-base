@@ -18,12 +18,12 @@ package neatlogic.framework.report.exception;
 
 import neatlogic.framework.exception.core.ApiRuntimeException;
 
-public class ReportParamRepeatsException extends ApiRuntimeException {
+public class ReportParamNameRepeatsException extends ApiRuntimeException {
 
     private static final long serialVersionUID = -5118392522423490471L;
 
-    public ReportParamRepeatsException(int index, String keyName) {
-        super("exception.report.reportparamrepeatsexception", index, keyName);
+    public ReportParamNameRepeatsException(int index) {
+        super("exception.report.reportparamnamerepeatsexception", index);
     }
 
 }
