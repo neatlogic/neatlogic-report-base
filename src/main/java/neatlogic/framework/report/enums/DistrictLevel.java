@@ -16,11 +16,13 @@
 
 package neatlogic.framework.report.enums;
 
+import neatlogic.framework.util.I18nUtils;
+
 public enum DistrictLevel {
-    COUNTRY("country", "国家"),
-    PROVINCE("province", "省"),
-    CITY("city", "城市"),
-    DISTRICT("district", "区域");
+    COUNTRY("country", "enum.report.districtlevel.country"),
+    PROVINCE("province", "enum.report.districtlevel.province"),
+    CITY("city", "enum.report.districtlevel.city"),
+    DISTRICT("district", "enum.report.districtlevel.district");
 
     private final String name;
     private final String text;
@@ -35,7 +37,7 @@ public enum DistrictLevel {
     }
 
     public String getText() {
-        return text;
+        return I18nUtils.getMessage(text);
     }
 
 
