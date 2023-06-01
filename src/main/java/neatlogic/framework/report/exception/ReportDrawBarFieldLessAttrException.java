@@ -24,6 +24,6 @@ import neatlogic.framework.exception.core.ApiRuntimeException;
 
 public class ReportDrawBarFieldLessAttrException extends ApiRuntimeException {
     public ReportDrawBarFieldLessAttrException(String field, String attr) {
-        super("exception.report.reportdrawbarfieldlessattrexception", field, attr);
+        super("堆积图数据集{0}属性中缺少{1}}字段", field, attr);
     }
 }

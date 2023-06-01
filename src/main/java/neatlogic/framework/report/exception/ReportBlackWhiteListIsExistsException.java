@@ -23,6 +23,6 @@ public class ReportBlackWhiteListIsExistsException extends ApiRuntimeException {
 
 
     public ReportBlackWhiteListIsExistsException(ReportBlackWhiteListVo reportBlackWhiteListVo) {
-        super("exception.report.reportblackwhitelistisexistsexception", reportBlackWhiteListVo.getItemName(), reportBlackWhiteListVo.getItemType());
+        super("报表可用对象“{0}({1})”已存在", reportBlackWhiteListVo.getItemName(), reportBlackWhiteListVo.getItemType());
     }
 }

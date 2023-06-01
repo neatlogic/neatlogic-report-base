@@ -23,7 +23,7 @@ public class ReportParamNameRepeatsException extends ApiRuntimeException {
     private static final long serialVersionUID = -5118392522423490471L;
 
     public ReportParamNameRepeatsException(int index) {
-        super("exception.report.reportparamnamerepeatsexception", index);
+        super("第：{0}个参数的名称重复", index);
     }
 
 }

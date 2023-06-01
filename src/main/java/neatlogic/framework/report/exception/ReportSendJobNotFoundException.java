@@ -23,6 +23,6 @@ public class ReportSendJobNotFoundException extends ApiRuntimeException {
     private static final long serialVersionUID = -867701399844094885L;
 
     public ReportSendJobNotFoundException(Long id) {
-        super("exception.report.reportsendjobnotfoundexception", id);
+        super("报表发送计划：{0}不存在", id);
     }
 }

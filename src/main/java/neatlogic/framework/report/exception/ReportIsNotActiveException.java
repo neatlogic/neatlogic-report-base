@@ -23,6 +23,6 @@ public class ReportIsNotActiveException extends ApiRuntimeException {
     private static final long serialVersionUID = 1373950211961149950L;
 
     public ReportIsNotActiveException(String name) {
-        super("exception.report.reportisnotactiveexception", name);
+        super("报表：{0}未激活", name);
     }
 }

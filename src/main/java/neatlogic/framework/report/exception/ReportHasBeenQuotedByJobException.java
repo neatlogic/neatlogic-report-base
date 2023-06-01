@@ -23,6 +23,6 @@ public class ReportHasBeenQuotedByJobException extends ApiRuntimeException {
     private static final long serialVersionUID = 3652383679845478468L;
 
     public ReportHasBeenQuotedByJobException(String reportName) {
-        super("exception.report.reporthasbeenquotedbyjobexception", reportName);
+        super("报表：{0}已被报表发送计划引用", reportName);
     }
 }

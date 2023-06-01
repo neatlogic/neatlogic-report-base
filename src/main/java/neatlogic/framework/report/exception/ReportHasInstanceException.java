@@ -23,6 +23,6 @@ public class ReportHasInstanceException extends ApiRuntimeException {
     private static final long serialVersionUID = -2372416746502767188L;
 
     public ReportHasInstanceException(String reportName) {
-        super("exception.report.reporthasinstanceexception", reportName);
+        super("报表：{0}已存在实例，不可删除", reportName);
     }
 }

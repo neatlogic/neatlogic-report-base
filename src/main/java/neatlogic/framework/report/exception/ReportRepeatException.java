@@ -23,6 +23,6 @@ public class ReportRepeatException extends ApiRuntimeException {
     private static final long serialVersionUID = -8456467533336714776L;
 
     public ReportRepeatException(String name) {
-        super("exception.report.reportrepeatexception", name);
+        super("报表：{0}已存在", name);
     }
 }

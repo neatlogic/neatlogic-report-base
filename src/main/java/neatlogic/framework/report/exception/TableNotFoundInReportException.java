@@ -23,6 +23,6 @@ public class TableNotFoundInReportException extends ApiRuntimeException {
     private static final long serialVersionUID = -6208469224750381783L;
 
     public TableNotFoundInReportException() {
-        super("exception.report.tablenotfoundinreportexception");
+        super("没有在报表中找到表格，请检查报表模版内容配置的格式是否正确");
     }
 }
