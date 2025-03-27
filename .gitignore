@@ -9,4 +9,4 @@ bin
 logs/
 .flattened-pom.xml
 /.idea/
-.flattened-pom.xml
+.DS_Store
